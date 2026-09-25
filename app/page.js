@@ -1,22 +1,37 @@
 "use client";
 
-import { useState } from "react";
-
 export default function Home() {
-const [menuOpen, setMenuOpen] = useState(false);
-
-return ( <main>
-{/* Navbar */} <nav className="navbar"> <div className="logo">Portfolio.</div>
+const handleSubmit = (e) => {
+e.preventDefault();
 
 
-    <button
-      className="menu-btn"
-      onClick={() => setMenuOpen(!menuOpen)}
-    >
-      ☰
-    </button>
+const name = e.target.name.value;
+const email = e.target.email.value;
+const message = e.target.message.value;
 
-    <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+const subject = "Portfolio Contact from " + name;
+
+const body =
+  "Name: " +
+  name +
+  "\nEmail: " +
+  email +
+  "\n\nMessage:\n" +
+  message;
+
+window.location.href =
+  "mailto:zummarzummar681@gmail.com?subject=" +
+  encodeURIComponent(subject) +
+  "&body=" +
+  encodeURIComponent(body);
+
+
+};
+
+return ( <main> <nav className="navbar"> <div className="logo">Portfolio.</div>
+
+```
+    <div className="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -25,7 +40,6 @@ return ( <main>
     </div>
   </nav>
 
-  {/* Hero */}
   <section id="home" className="hero">
     <div className="hero-text">
       <p className="small-text">HELLO, I'M</p>
@@ -54,19 +68,18 @@ return ( <main>
 
     <div className="hero-image">
       <div className="image-circle">
-<img
-  src="/profile.PNG"
-  alt="Profile"
-  className="profile-img"
-/>
-
+        <img
+          src="/profile.PNG"
+          alt="Profile"
+          className="profile-img"
+        />
       </div>
     </div>
   </section>
 
-  {/* About */}
   <section id="about" className="section">
     <p className="section-title">ABOUT ME</p>
+
     <h2>Who I Am</h2>
 
     <p className="section-text">
@@ -76,9 +89,9 @@ return ( <main>
     </p>
   </section>
 
-  {/* Skills */}
   <section id="skills" className="section">
     <p className="section-title">MY SKILLS</p>
+
     <h2>What I Know</h2>
 
     <div className="skills">
@@ -91,44 +104,97 @@ return ( <main>
     </div>
   </section>
 
-  {/* Projects */}
   <section id="projects" className="section">
     <p className="section-title">MY WORK</p>
+
     <h2>Recent Projects</h2>
 
     <div className="projects">
       <div className="project-card">
         <h3>Rizumi Glam Hub</h3>
+
         <p>Fashion e-commerce website.</p>
+
+        <a
+          href="https://jannatulzumar.github.io/rizumi-e-commerce-web/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+        >
+          View Project
+        </a>
       </div>
 
       <div className="project-card">
-        <h3>Movie App</h3>
-        <p>A modern movie browsing application.</p>
+        <h3>TicTacToe</h3>
+
+        <p>A fun and interactive Tic Tac Toe game.</p>
+
+        <a
+          href="https://jannatulzumar.github.io/Tictactoe/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+        >
+          View Project
+        </a>
       </div>
 
       <div className="project-card">
         <h3>Currency Converter</h3>
+
         <p>A simple currency conversion application.</p>
+
+        <a
+          href="https://jannatulzumar.github.io/currency-convertor/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn"
+        >
+          View Project
+        </a>
       </div>
     </div>
   </section>
 
-  {/* Contact */}
-  <section id="contact" className="section contact">
-    <p className="section-title">CONTACT</p>
+  <section id="contact" className="section contact-section">
+    <p className="section-title">CONTACT ME</p>
+
     <h2>Let's Work Together</h2>
 
-    <p>
-      Have a project in mind? Feel free to get in touch with me.
+    <p className="section-text">
+      Have a project in mind? Send me a message and I will get
+      back to you.
     </p>
 
-    <a href="mailto:your@email.com" className="btn">
-      Contact Me
-    </a>
+    <form className="contact-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+      />
+
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        rows={6}
+        required
+      ></textarea>
+
+      <button type="submit" className="btn">
+        Send Message
+      </button>
+    </form>
   </section>
 
-  {/* Footer */}
   <footer>
     <p>© 2026 My Portfolio. All Rights Reserved.</p>
   </footer>
@@ -136,6 +202,3 @@ return ( <main>
 
 );
 }
-
-
-
