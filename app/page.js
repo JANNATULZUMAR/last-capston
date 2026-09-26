@@ -30,7 +30,7 @@ window.location.href =
 
 return ( <main> <nav className="navbar"> <div className="logo">Portfolio.</div>
 
-```
+
     <div className="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
