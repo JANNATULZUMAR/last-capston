@@ -69,7 +69,7 @@ return ( <main> <nav className="navbar"> <div className="logo">Portfolio.</div>
     <div className="hero-image">
       <div className="image-circle">
         <img
-          src="/profile.PNG"
+          src="/profile.png"
           alt="Profile"
           className="profile-img"
         />
